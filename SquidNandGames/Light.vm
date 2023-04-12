@@ -1,0 +1,175 @@
+function Light.new 0
+push constant 7
+call Memory.alloc 1
+pop pointer 0
+push constant 170
+pop this 2
+push constant 34
+pop this 3
+push constant 20
+pop this 4
+push pointer 0
+call Light.drawLightOutline 1
+pop temp 0
+push pointer 0
+call Light.resetTimer 1
+pop temp 0
+push constant 0
+not
+pop this 0
+push constant 250
+pop this 5
+push constant 0
+call BackGround.setOffset 1
+pop temp 0
+call BackGround.drawGo 0
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 2
+push this 3
+push this 2
+push constant 150
+add
+push this 3
+push this 4
+add
+call Screen.drawRectangle 4
+pop temp 0
+push pointer 0
+return
+function Light.drawLightOutline 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 2
+push constant 1
+sub
+push this 3
+push constant 1
+sub
+push this 2
+push constant 151
+add
+push this 3
+push this 4
+add
+push constant 1
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function Light.resetTimer 0
+push argument 0
+pop pointer 0
+push constant 1000
+call Random.randRange 1
+pop this 6
+push constant 2500
+push this 6
+sub
+pop this 1
+push constant 0
+return
+function Light.getCanMove 0
+push argument 0
+pop pointer 0
+push this 0
+not
+return
+function Light.draw 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 17
+call Math.divide 2
+pop this 5
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 2
+push this 5
+add
+push this 3
+push this 2
+push constant 150
+add
+push this 3
+push this 4
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function Light.drawSign 0
+push argument 0
+pop pointer 0
+push this 0
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+call BackGround.drawGo 0
+pop temp 0
+goto IF_END0
+label IF_FALSE0
+call BackGround.drawStop 0
+pop temp 0
+label IF_END0
+push constant 0
+return
+function Light.update 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 1
+sub
+pop this 1
+push pointer 0
+call Light.draw 1
+pop temp 0
+push this 1
+push constant 0
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+call Light.drawSign 1
+pop temp 0
+push this 0
+not
+pop this 0
+push pointer 0
+call Light.resetTimer 1
+pop temp 0
+push this 0
+call Screen.setColor 1
+pop temp 0
+push this 2
+push this 3
+push this 2
+push constant 150
+add
+push this 3
+push this 4
+add
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Light.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
