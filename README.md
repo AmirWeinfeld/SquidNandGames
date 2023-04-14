@@ -7,4 +7,5 @@ Instructions:
 * Navigate to the location of the project and select `SquidNandGames` folder.
 * Change the animation to `No Animation`.
 * Press the `Run` button and enjoy!
+
 Demo - https://youtu.be/8QGlde2N_KM
